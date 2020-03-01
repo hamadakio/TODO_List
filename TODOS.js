@@ -47,7 +47,7 @@ buttonElement.onclick = addTODO;
 
 function deleteTODO(pos) {
     //remove uma posicao do array
-    todos.splice(pos);
+    todos.splice(pos,1);
     saveTODOS();
     renderTODOS();
 }
