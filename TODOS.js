@@ -4,25 +4,23 @@ var buttonElement = document.querySelector('#app button');
 
 
 var todos = JSON.parse(localStorage.getItem('list_TODOS')) || [];
-    
-function renderTODOS()
-{
-    //limpa a lista//
-    listElement.innerHTML='';
 
-    for (item of todos)
-    {
+function renderTODOS() {
+    //limpa a lista//
+    listElement.innerHTML = '';
+
+    for (item of todos) {
         var todoElement = document.createElement('li');
         var todoText = document.createTextNode(item);
 
         var linkElement = document.createElement('a');
         var linkText = document.createTextNode('Excluir');
-       
+
 
         var pos = todos.indexOf(item);
-        linkElement.setAttribute('onclick' , 'deleteTODO(' + pos + ')');
+        linkElement.setAttribute('onclick', 'deleteTODO(' + pos + ')');
 
-        linkElement.setAttribute('href' , '#');
+        linkElement.setAttribute('href', '#');
         linkElement.appendChild(linkText);
 
 
@@ -36,8 +34,7 @@ function renderTODOS()
 
 renderTODOS();
 
-function addTODO()
-{
+function addTODO() {
     var todoText = inputElement.value;
 
     todos.push(todoText);
@@ -48,15 +45,13 @@ function addTODO()
 
 buttonElement.onclick = addTODO;
 
-function deleteTODO(pos)
-{
+function deleteTODO(pos) {
     //remove uma posicao do array
     todos.splice(pos);
     saveTODOS();
     renderTODOS();
 }
 
-function saveTODOS()
-{
-    localStorage.setItem('list_TODOS' , JSON.stringify(todos));
+function saveTODOS() {
+    localStorage.setItem('list_TODOS', JSON.stringify(todos));
 }
